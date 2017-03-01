@@ -35,21 +35,21 @@ describe('thingiverse object tests', () => {
 describe('getError tests', () => {
   const res = {
     headers: { 'x-error': 'Beefy-armed error message' },
-    body: 'An error with barbie legs'
+    body: { error: 'An error with barbie legs' }
   };
 
-  it('check the x-error header', () => {
+  it('checks the x-error header', () => {
     thingiverse.getError(res).should.eq(res.headers['x-error']);
   })
 
   it('returns the body if x-error header empty', () => {
     thingiverse.getError(
       _.assign({}, res, { headers: { 'x-error': null } })
-    ).should.eq(res.body);
+    ).should.eq(res.body.error);
   })
 
-  it('returns null the body and x-error header are empty', () => {
-    expect(thingiverse.getError({})).to.be.null;
+  it('returns null if the body and x-error header are empty', () => {
+    expect(thingiverse.getError()).to.be.null;
   })
 });
 

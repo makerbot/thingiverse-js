@@ -45,13 +45,13 @@ As a string, simply pass your `client_id`.
 
 #### thingiverse.getError(response)
 
-Returns a string containing the error that occured in your API request.
+Returns a string containing the error that occurred in your API request, or `null` if none is found.
 
 ##### response
 
 Type: `object`
 
-Should be the response object returned from an API request (usually, `err.response).
+Should be the response object returned from an API request (usually, `err.response`).
 
 #### thingiverse.getAccessToken(opts)
 
