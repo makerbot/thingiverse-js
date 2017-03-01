@@ -1,6 +1,6 @@
 {
   "name": "thingiverse-js",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Easy Thingiverse API requests for Node.js",
   "main": "lib/index.js",
   "scripts": {
