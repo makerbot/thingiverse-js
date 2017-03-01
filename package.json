@@ -26,5 +26,8 @@
     "api",
     "makerbot",
     "got"
+  ],
+  "files": [
+    "lib/"
   ]
 }
