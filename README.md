@@ -22,7 +22,7 @@ some conveniences.
 
 #### thingiverse(path, opts)
 
-Returns a Promise for the API request.
+Returns a Promise for the API request. This Promise is the return value from a _got_ request.
 
 ##### path
 
