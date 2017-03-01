@@ -4,6 +4,8 @@
   "description": "Easy Thingiverse API requests for Node.js",
   "main": "lib/index.js",
   "scripts": {
+    "prepublish": "npm test",
+    "preversion": "npm test",
     "test": "mocha"
   },
   "repository": {

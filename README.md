@@ -9,7 +9,7 @@ We've added some Thingiverse-specific conveniences, but all features of _got_ wi
 [documentation](https://github.com/sindresorhus/got#readme).
 
 ```sh
-npm install thingiverse-js`
+npm install thingiverse-js
 ```
 ```js
 const thingiverse = require('thingiverse-js');
@@ -19,6 +19,18 @@ const thingiverse = require('thingiverse-js');
 
 In addition to the standard [got](https://github.com/sindresorhus/got) methods, we've added
 some conveniences.
+
+#### thingiverse(path, opts)
+
+Returns a Promise for the API request.
+
+##### path
+
+Should be a string containing the endpoint you're calling (`/users/me` for example). The leading slash is optional.
+
+##### opts
+
+Should be an object containing, at least, the OAuth access token set to the property `token`. Other _got_ options may be added.
 
 #### thingiverse.getAuthorizeUrl(opts)
 
