@@ -3,6 +3,7 @@
 const chai = require('chai')
   , expect = chai.expect
   , should = chai.should()
+  , FormData = require('form-data')
   , thingiverse = require('../lib')
   , _ = require('lodash')
   ;
@@ -53,6 +54,20 @@ describe('getError tests', () => {
   })
 });
 
+describe('getFinalizeUrl tests', () => {
+  const res = {
+    headers: { location: 'http://www.thingiverse.com' }
+  };
+
+  it('checks the x-error header', () => {
+    thingiverse.getFinalizeUrl(res).should.eq(res.headers.location);
+  })
+
+  it('returns null if location header is empty', () => {
+    expect(thingiverse.getFinalizeUrl({})).to.be.null;
+  })
+});
+
 describe('getAuthorizeUrl tests', () => {
   it('returns expected URL (object param)', () => {
     thingiverse.getAuthorizeUrl({ query: { client_id: 'abcdef123' } }).should.eq(
@@ -86,4 +101,20 @@ describe('getAuthorizeUrl tests', () => {
       'http://www.thingiverse.dev:8888/login/oauth/authorize?client_id=abcdef123'
     );
   })
+});
+
+describe('getForm tests', () => {
+  const data = {
+    human: 'good',
+    cylon: 'bad'
+  };
+
+  it('returns a FormData instance', () => {
+    thingiverse.getForm().should.be.an.instanceof(FormData)
+      .and.have.property('_valueLength', 0);
+  });
+
+  it('adds given fields', () => {
+    thingiverse.getForm(data).getLengthSync().should.be.gt(0);
+  });
 });

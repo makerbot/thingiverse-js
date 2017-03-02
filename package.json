@@ -20,6 +20,7 @@
     "nock": "^9.0.9"
   },
   "dependencies": {
+    "form-data": "^2.1.2",
     "got": "^6.7.1",
     "lodash": "^4.17.4"
   },
